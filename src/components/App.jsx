@@ -1,16 +1,25 @@
+// import { useEffect, useState } from 'react';
+import { Section } from './Section/Section.jsx';
+import { Contacts } from './Contacts/Contacts.jsx';
+// import { nanoid } from 'nanoid';
+import { Form } from './ContactsForm/ContactsForm.jsx';
+import { Filter } from './Filter/Filter.jsx';
+
+// const LOCAL_KEY = 'activ-id';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Section title={'Phonebook'}>
+        <Form /*hendelSubmit={hendelSubmit} */ />
+      </Section>
+      <Section title={'Filter'}>
+        <Filter /*stateFilter={filter} hendlerChange={hendlerChange}*/ />
+      </Section>
+
+      <Section title={'Contacts'}>
+        <Contacts /*contacts={filterMap()} hendelDelete={hendelDelete}*/ />
+      </Section>
+    </>
   );
 };
