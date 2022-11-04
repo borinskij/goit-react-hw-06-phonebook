@@ -3,8 +3,7 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { phoneSetContactAction } from 'redux/Phonebook/action.phonebook';
-// import { hendelSubmit } from 'redux/Phonebook/reduser.phonebook';
-
+import css from './ContactsForm.module.css';
 export const Form = () => {
   const dispatch = useDispatch();
 
@@ -36,6 +35,7 @@ export const Form = () => {
         <br />
         <input
           onChange={hendlerChangeName}
+          className={css.input}
           type="text"
           name="name"
           value={name}
@@ -50,6 +50,7 @@ export const Form = () => {
         Number <br />
         <input
           onChange={hendlerChangeNumber}
+          className={css.input}
           value={number}
           placeholder="Number"
           type="tel"
@@ -61,7 +62,7 @@ export const Form = () => {
         />
       </label>
       <br />
-      <button>Add Contact</button>
+      <button className={css.btn}>Додати контакт</button>
       <br />
       <br />
     </form>
