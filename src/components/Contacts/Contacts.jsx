@@ -1,17 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { phoneDeleteContactAction } from 'redux/Phonebook/action.phonebook';
+import { phoneDeleteContact } from '../../redux/Phonebook/slicePhonebook';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const LOCAL_KEY = 'activ-id';
   const hendelDelete = id => {
-    dispatch(phoneDeleteContactAction(id));
+    dispatch(phoneDeleteContact(id));
   };
-  const { contacts } = useSelector(state => state);
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(contacts));
+  const filter = useSelector(state => state.filter.filter);
+  console.log('filter :', filter);
+  const { contacts } = useSelector(state => state.contacts);
+  console.log('contacts :', contacts);
+
+  const filterContacts = () => {
+    if (filter) {
+      return contacts.filter(element =>
+        element.name.toLowerCase().includes(filter.trim())
+      );
+    }
+    return contacts;
+  };
+
   return (
     <ul>
-      {contacts?.map(item => (
+      {filterContacts().map(item => (
         <li key={item.id}>
           <p>
             {item.name}: {item.number}

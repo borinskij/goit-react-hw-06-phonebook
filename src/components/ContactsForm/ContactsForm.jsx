@@ -1,12 +1,12 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { phoneSetContactAction } from 'redux/Phonebook/action.phonebook';
+import { phoneSetContact } from '../../redux/Phonebook/slicePhonebook';
 import css from './ContactsForm.module.css';
-export const Form = () => {
-  const dispatch = useDispatch();
 
+export const Form = () => {
   const id = nanoid();
+  const dispatch = useDispatch();
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -22,7 +22,7 @@ export const Form = () => {
 
   const handelSubmit = event => {
     event.preventDefault();
-    dispatch(phoneSetContactAction({ id, name, number }));
+    dispatch(phoneSetContact({ id, name, number }));
     setName('');
     setNumber('');
   };
@@ -30,7 +30,7 @@ export const Form = () => {
   return (
     <form onSubmit={handelSubmit}>
       <label>
-        Name
+        <span className={css.title}> Name</span>
         <br />
         <input
           onChange={hendlerChangeName}
@@ -46,7 +46,7 @@ export const Form = () => {
       </label>
       <br />
       <label>
-        Number <br />
+        <span className={css.title}>Number</span> <br />
         <input
           onChange={hendlerChangeNumber}
           className={css.input}

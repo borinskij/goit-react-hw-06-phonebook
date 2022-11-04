@@ -1,13 +1,11 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { phoneFilterContactAction } from 'redux/Phonebook/action.phonebook';
+import { useDispatch, useSelector } from 'react-redux';
+import { phoneFilterContact } from '../../redux/Phonebook/sliceFilter';
 
 export const Filter = () => {
-  const [filter, setFilter] = useState('');
   const dispatch = useDispatch();
+  const { filter } = useSelector(state => state.filter);
   const hendlerChange = e => {
-    setFilter(e.target.value);
-    dispatch(phoneFilterContactAction(filter.toLowerCase()));
+    dispatch(phoneFilterContact(e.target.value.toLowerCase()));
   };
 
   return (
