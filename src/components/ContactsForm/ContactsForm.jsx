@@ -1,7 +1,6 @@
-// import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { phoneSetContactAction } from 'redux/Phonebook/action.phonebook';
 import css from './ContactsForm.module.css';
 export const Form = () => {
@@ -68,7 +67,3 @@ export const Form = () => {
     </form>
   );
 };
-
-// Form.propTypes = {
-//   hendelSubmit: PropTypes.func.isRequired,
-// };
