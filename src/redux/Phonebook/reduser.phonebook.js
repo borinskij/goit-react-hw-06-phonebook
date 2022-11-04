@@ -1,5 +1,3 @@
-// import { phonebookInitialState } from './initial-state.phonebook';
-
 export const phonebookReducer = (state, action) => {
   switch (action.type) {
     case 'phonebook/phoneSetContact':

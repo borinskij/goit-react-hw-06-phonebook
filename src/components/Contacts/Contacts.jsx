@@ -9,7 +9,6 @@ export const Contacts = () => {
   };
   const { contacts } = useSelector(state => state);
   localStorage.setItem(LOCAL_KEY, JSON.stringify(contacts));
-  console.log('contacts :', contacts);
   return (
     <ul>
       {contacts?.map(item => (
@@ -23,8 +22,3 @@ export const Contacts = () => {
     </ul>
   );
 };
-
-// Contacts.propTypes = {
-//   contacts: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired)),
-//   hendelDelete: PropTypes.func.isRequired,
-// };
