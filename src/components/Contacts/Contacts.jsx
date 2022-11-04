@@ -6,10 +6,8 @@ export const Contacts = () => {
   const hendelDelete = id => {
     dispatch(phoneDeleteContact(id));
   };
-  const filter = useSelector(state => state.filter.filter);
-  console.log('filter :', filter);
+  const { filter } = useSelector(state => state.filter);
   const { contacts } = useSelector(state => state.contacts);
-  console.log('contacts :', contacts);
 
   const filterContacts = () => {
     if (filter) {

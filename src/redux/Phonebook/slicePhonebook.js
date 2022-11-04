@@ -9,6 +9,9 @@ const phonebookSlice = createSlice({
   initialState,
   reducers: {
     phoneSetContact: (state, action) => {
+      if (state.contacts.some(item => item.name === action.payload.name)) {
+        return alert(`${action.payload.name} is already in contacts`);
+      }
       state.contacts = [...state.contacts, action.payload];
     },
     phoneDeleteContact(state, action) {
